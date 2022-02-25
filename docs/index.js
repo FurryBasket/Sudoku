@@ -141,6 +141,16 @@ function addNum(num) {
 
 //resets the board
 function restart() {
+    //gets all elements with class name cell
+    const cells = document.getElementsByClassName('cell')
+    //loops through each cell before the board is reset to make sure no values are left green or red
+    for (i=0; i<cells.length; i++){
+        //if the id equals solved or incorrect then it changes the id to nothing
+        if (cells[i].id === 'solved' || cells[i].id === 'incorrect'){
+            //changes the id to nothing
+            cells[i].id = ''
+        }
+    }
     //just prints the starting board
     printBoard(board)
 }
